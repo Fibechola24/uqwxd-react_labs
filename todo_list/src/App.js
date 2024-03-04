@@ -2,9 +2,27 @@ import React, {useState} from "react";
 import "./App.css";
 const App = () => {
   const [todos, setTodos] = useState([]);
-  
+  //create and implement code to add task
+
+
   // Add the handlesubmit code here
-  
+  function handlesubmit(e){
+    e.preventDefault();
+
+    let todo = document.getElementById('todoAdd').value
+    const newTodo = {
+      id: new Date().getTime(),
+      text: todo.trim(),
+      completed: false,
+    };
+    if (newTodo.text.length > 0){
+      setTodos([...todos].concat(newTodo));
+    }else{
+      alert("Enter valid Task");
+    }
+    document.getElementById('todoAdd').value =""
+
+  }
   
   // Add the deleteToDo code here
 
